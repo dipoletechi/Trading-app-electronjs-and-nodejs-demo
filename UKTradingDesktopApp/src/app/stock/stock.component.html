@@ -1,0 +1,50 @@
+<div class="mainbodycontainer row">
+  <app-titleheader [isLoading]="isLoading" [loaderMessage]="loaderMessage"></app-titleheader>
+  <div class="row removerowmargin">
+    <div class="col-lg-3 actionpanelsearch">
+      <input placeholder="Filter Symbol" class="form-control searchfilter" (keyup)="applyFilter($event.target.value)">
+      <img class="symbolsearch" src="./assets/findstock.png" />
+    </div>
+
+    <div class="col-lg-3 actionpaneladd">
+
+      <input [formControl]="symbolAddControl" matInput placeholder="Add Symbol & press enter" matInput [errorStateMatcher]="matcher"
+        [(ngModel)]="newSymbol" class="form-control searchfilter" (keyup.enter)="addSymbol()" [attr.disabled]="isLoading?'':null">
+      <img class="symboladd" [style.cursor]="isLoading==true?'not-allowed':'pointer'" (click)="addSymbol()" src="./assets/addsymbol.png"
+      />
+      <div class="errorsection">
+        <mat-error *ngIf="symbolAddControl.hasError('required')">
+          Symbol can not be empty
+        </mat-error>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-12 stock table-container">
+    <mat-table class="customscroller" #table [dataSource]="stockDataSource">
+
+      <ng-container matColumnDef="Symbol">
+        <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.Symbol}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.Name}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Price">
+        <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.Price}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Percentage">
+        <mat-header-cell *matHeaderCellDef> % </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.Percentage}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row [style.background-color]="row.BackgroundColor" *matRowDef="let row; columns: displayedColumns;" (click)="selectStock($event,row)"></mat-row>
+    </mat-table>
+  </div>
+</div>

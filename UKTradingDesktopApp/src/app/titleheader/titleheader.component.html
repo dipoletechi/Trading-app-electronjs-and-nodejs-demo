@@ -1,0 +1,17 @@
+<toaster-container [toasterconfig]="notificationService.toasterconfig"></toaster-container>
+<div class="col-lg-12">
+    <div class="title_header_bar">
+        <div class="title-bar">
+            <div class="title">
+                {{headerTitle}}
+            </div>
+
+            <div class="title-bar-btns">
+                <img *ngIf="isLoading" src="./assets/loader.gif" />
+                <label *ngIf="isLoading">{{loaderMessage}}</label>
+                <img src="./assets/minimize.png" (click)="minimizeWindow()" />
+                <img src="./assets/close.png" (click)="closeWindow()" />
+            </div>
+        </div>
+    </div>
+</div>

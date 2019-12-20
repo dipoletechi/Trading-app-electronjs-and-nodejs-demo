@@ -1,0 +1,112 @@
+<div class="mainbodycontainer row">
+  <app-titleheader [isLoading]="isLoading" [loaderMessage]="loaderMessage"></app-titleheader>
+  <div class="col-lg-12 logosection">
+    <img src="./assets/bitcoinlogo.png" />
+    <label>
+      Trading App
+    </label>
+  </div>
+  <div class="col-lg-12 authcentercontainer">
+    <mat-tab-group [disableRipple]="true">
+      <mat-tab label="Login">
+          <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+              <div class="col-lg-12 form-control-section">
+                <input [formGroup]="loginForm" formControlName="userNameControl" matInput placeholder="User Name" />
+                <div class="errorsection" *ngIf="loginForm.touched">
+                  <mat-error *ngIf="loginForm.controls.userNameControl.errors?.required">
+                    Username can not be empty
+                  </mat-error>    
+                </div>
+                <div class="errorsection" *ngIf="loginForm.touched">
+                  <mat-error *ngIf="loginForm.controls.userNameControl.errors?.email">
+                    Invalid Username
+                  </mat-error>
+                </div>
+              </div>
+              <div class="col-lg-12 form-control-section">
+                <input [formGroup]="loginForm" formControlName="passwordControl" type="password" matInput placeholder="Password" />
+                <div class="errorsection" *ngIf="loginForm.touched">
+                  <mat-error *ngIf="loginForm.controls.passwordControl.errors?.required">
+                    Password can not be empty
+                  </mat-error>
+                </div>
+              </div>          
+              <div class="col-lg-12 form-control-section">
+                <button *ngIf="!isLoginInProgress" type="submit" class="btn btn-warning">
+                Login
+                </button>
+                <button *ngIf="isLoginInProgress" class="btn btn-warning">
+                  <img src="./assets/loader.gif">&nbsp;Validating your information..
+                </button>
+              </div>
+              <div class="col-lg-12 form-control-section">
+                <div class="alert alert-danger alert-dismissable" *ngIf="loginErrorMessage!=''">
+                  <strong>Error!</strong> {{loginErrorMessage}}
+                </div>
+    
+                <div class="alert alert-success alert-dismissable" *ngIf="loginSuccessMessage!=''">
+                  <strong>Success!</strong> {{loginSuccessMessage}}
+                </div>
+              </div>
+    
+            </form>
+      </mat-tab>
+      <mat-tab label="Registration">
+        <form [formGroup]="registrationForm" (ngSubmit)="onRegisterSubmit()">
+          <div class="col-lg-12 form-control-section">
+            <input [formGroup]="registrationForm" formControlName="userNameControl" matInput placeholder="User Name" />
+            <div class="errorsection" *ngIf="registrationForm.touched">
+              <mat-error *ngIf="registrationForm.controls.userNameControl.errors?.required">
+                Username can not be empty
+              </mat-error>
+
+            </div>
+            <div class="errorsection" *ngIf="registrationForm.touched">
+              <mat-error *ngIf="registrationForm.controls.userNameControl.errors?.email">
+                Invalid Username
+              </mat-error>
+            </div>
+          </div>
+          <div class="col-lg-12 form-control-section">
+            <input [formGroup]="registrationForm" formControlName="passwordControl" type="password" matInput placeholder="Password" />
+            <div class="errorsection" *ngIf="registrationForm.touched">
+              <mat-error *ngIf="registrationForm.controls.passwordControl.errors?.required">
+                Password can not be empty
+              </mat-error>
+            </div>
+          </div>
+          <div class="col-lg-12 form-control-section">
+            <input [formGroup]="registrationForm" formControlName="confirmPasswordControl" type="password" matInput placeholder="Confirm Password"
+            />
+            <div class="errorsection" *ngIf="registrationForm.touched">
+              <mat-error *ngIf="registrationForm.controls.confirmPasswordControl.errors?.required">
+                Confirm password can not be empty
+              </mat-error>
+              <mat-error *ngIf="registrationForm.controls.confirmPasswordControl.errors?.MatchPassword">
+                Password does not match
+              </mat-error>
+            </div>
+          </div>
+          <div class="col-lg-12 form-control-section">
+            <button *ngIf="!isRegisterationInProgress" type="submit" class="btn btn-warning">
+              Register
+            </button>
+            <button *ngIf="isRegisterationInProgress" class="btn btn-warning">
+              <img src="./assets/loader.gif">&nbsp;Registration in progress..
+            </button>
+          </div>
+          <div class="col-lg-12 form-control-section">
+            <div class="alert alert-danger alert-dismissable" *ngIf="registerErrorMessage!=''">
+              <strong>Error!</strong> {{registerErrorMessage}}
+            </div>
+
+            <div class="alert alert-success alert-dismissable" *ngIf="registerSuccessMessage!=''">
+              <strong>Success!</strong> {{registerSuccessMessage}}
+            </div>
+          </div>
+
+        </form>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

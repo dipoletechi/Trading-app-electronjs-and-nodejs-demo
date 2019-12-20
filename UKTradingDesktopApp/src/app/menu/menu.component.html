@@ -1,0 +1,40 @@
+<div class="bodycontainer row">
+    <app-titleheader [isLoading]="isLoading" [loaderMessage]="loaderMessage"></app-titleheader>
+    <div class="row removerowmargin">
+        <div class="col-lg-8 main-menu">
+            <ul id="menunav">
+                <li *ngFor=" let menuItem of menuItems" (mouseover)="menumouseover(menuItem)" (click)="menuclick(menuItem)" (mouseout)="menumouseout(menuItem)">
+                    <a class="cursorpointer">
+                        <img src="{{menuItem.ImageUrl}}" /> &nbsp;{{menuItem.Title}} </a>
+                    <ul>
+                        <li *ngFor=" let subMenuItem of menuItem.SubMenu" (mouseover)="menumouseover(subMenuItem)" (click)="menuclick(subMenuItem)"
+                            (mouseout)="menumouseout(subMenuItem)">
+                            <a class="cursorpointer">
+                                <img src="{{subMenuItem.ImageUrl}}" /> &nbsp; {{subMenuItem.Title}}</a>
+                        </li>
+
+                    </ul>
+                </li>
+
+            </ul>
+
+
+        </div>
+        <div class="col-lg-4 main-clock">
+            <ul>
+                <li>
+                    <a>{{newYorkClock|date:'dd/MM/yyyy hh:mm:ss a'}}&nbsp; (New York)</a>
+                </li>
+                <li>|</li>
+                <li>
+                    <a>{{londonClock|date:'dd/MM/yyyy hh:mm:ss a'}}&nbsp; (London)</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row removerowmargin">
+        <div class="col-lg-4 menu-search-box" *ngIf="!isMenuInAction">
+            <input placeholder="Search" class="form-control searchfilter">
+        </div>
+    </div>
+</div>

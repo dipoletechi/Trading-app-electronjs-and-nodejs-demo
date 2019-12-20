@@ -1,0 +1,44 @@
+.title_header_bar img
+{
+    height: 10px;
+    width: 10px;
+}
+
+.title_header_bar label
+{
+    font-size: 10px;
+}
+
+.title_header_bar{
+    height: auto;    
+}
+.title_header_bar .title-bar {
+    -webkit-app-region: drag;
+    height: 24px;
+    text-align: center;    
+    vertical-align: middle;
+    background-color:black;
+    padding: none;
+    margin: 0px;    
+    border-bottom: #2d2424 solid 1px;
+}
+
+.title_header_bar .title {
+    position: fixed;
+    top: 0px;
+    left: 13px;
+    color:white;
+}
+
+.title_header_bar .title-bar-btns {
+    -webkit-app-region: no-drag;
+    position: fixed;
+    top: 0px;
+    right: 6px;    
+}
+
+.title_header_bar .title-bar-btns img {
+    height: 10px;
+    width: 10px;
+    cursor: pointer;
+}

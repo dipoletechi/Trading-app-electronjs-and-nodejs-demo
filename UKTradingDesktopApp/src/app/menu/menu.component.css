@@ -1,0 +1,106 @@
+.main-menu
+{
+    margin-top: 5px;    
+}
+.bodycontainer
+{
+    background-color:black;
+    color:white;   
+    height: 100%;        
+    padding-left: 10px;    
+    margin-right: 0px;
+}
+
+.main-menu ul#menunav {
+  float: left;
+  width:100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height:45px; 
+}
+ 
+.main-menu ul#menunav li {
+  display: inline;
+}
+ 
+.main-menu ul#menunav li a {
+  float: left;
+  line-height: 20px;
+  text-decoration: none;  
+  margin: 0;
+  padding-top: 6px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 6px;
+  color:white;
+}
+ 
+/* APPLIES THE ACTIVE STATE */
+.main-menu ul#menunav .current a, ul#menunav li:hover > a  {
+  text-decoration: none;
+}
+ 
+/* THE SUBMENU LIST HIDDEN BY DEFAULT */
+.main-menu ul#menunav  ul {
+  display: none;
+}
+
+.main-menu ul#menunav li:hover>a{
+    border-radius: 10px;
+    border-bottom: orange 2px solid;
+    color:orange;
+}
+/* WHEN THE FIRST LEVEL MENU ITEM IS HOVERED, THE CHILD MENU APPEARS */
+.main-menu ul#menunav li:hover > ul {
+    position: absolute;
+    display: block;
+    width: 98%;
+    margin: 35px 0 0 0;
+    padding: 0px;
+    margin-left: 0px;
+
+}
+ 
+.main-menu ul#menunav li:hover > ul li a {
+  float: left;
+  line-height: 20px;
+  text-decoration: none;   
+}
+ 
+.main-menu ul#menunav li:hover > ul li a:hover {
+  text-decoration: none;
+}
+
+.activemenu{
+    border-radius: 10px;
+    border-bottom: orange 2px solid;
+}
+
+.main-clock ul{
+  float: right;
+}
+
+.main-clock ul li:hover > a  {
+  text-decoration: none;
+  color: orange;
+}
+
+.main-clock ul li  {
+  float: right;
+    list-style: none;
+    padding-right: 20px;
+color: orange
+}
+
+
+.main-clock ul li  a{
+  float: right;
+    list-style: none;
+    padding-right: 20px;
+    color:orange;
+}
+.menu-search-box input{
+  margin-left: 19px;
+}

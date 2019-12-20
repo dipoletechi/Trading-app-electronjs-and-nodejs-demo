@@ -1,0 +1,6 @@
+
+UKTradingDesktopApp/dist/
+UKTradingDesktopApp/node_modules/
+UKTradingDesktopApp/release-builds/
+UKTradingServerApp/node_modules/
+UKTradingDesktopApp/package-lock.json

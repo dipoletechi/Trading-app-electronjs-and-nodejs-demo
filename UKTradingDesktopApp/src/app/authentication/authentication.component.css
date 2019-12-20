@@ -1,0 +1,54 @@
+.authcentercontainer{
+    margin-left: 10%;
+    margin-right: 10%;    
+    margin-bottom: 5%;
+    height: calc(100% - 152px);
+}
+.authcentercontainer .mat-tab-label{
+    width: 50%;
+}
+.authcentercontainer .mat-ink-bar
+{
+    background-color: #8c859e;
+}
+
+.logosection{
+    margin-left: 30%;
+    margin-top: 5px;
+}
+
+.logosection img
+{
+width: 70px;
+height: 70px
+}
+
+.logosection label
+{
+    font-weight: bolder;
+    font-size: 40px;
+}
+
+.form-control-section{
+padding-top: 20px;
+}
+
+
+.form-control-section .mat-form-field-autofill-control
+{
+border:none;
+border-bottom:1px solid white;
+color:orange;
+width:100%;
+background-color: black;
+outline: none;
+}
+
+.form-control-section .mat-form-field-autofill-control:focus
+{
+    border-bottom:1px solid orange;
+}
+
+.form-control-section button{
+border-radius:0px;
+}

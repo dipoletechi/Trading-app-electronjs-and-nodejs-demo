@@ -1,0 +1,24 @@
+.splashscreen
+{
+    text-align: center;
+    padding-top: 50px;
+
+}
+.loader{
+
+}
+.splashscreen .logo{
+    height: 150px;
+    width: 150px;
+}
+
+/* The animation code */
+
+@keyframes blinker {  
+    50% { opacity: 0; }
+  }
+
+/* The element to apply the animation to */
+.messagecontainer { 
+    animation: blinker 5s linear infinite;    
+}

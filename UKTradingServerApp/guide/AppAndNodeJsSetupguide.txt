@@ -1,0 +1,72 @@
+================Set up nodejs to server====================================
+Then use apt-get to install the git package, which npm depends on:
+sudo apt-get install git
+
+1) cd to remote directory and download nodejs setup file
+cd ~
+wget https://nodejs.org/dist/v4.2.3/node-v4.2.3-linux-x64.tar.gz
+
+2) Extract nodejs file
+mkdir node
+tar xvf node-v*.tar.?z --strip-components=1 -C ./node
+
+3)Next, we'll configure the global prefix of npm, 
+where npm will create symbolic links to installed Node packages, 
+to somewhere that it's in your default path. We'll set it to /usr/local with this command:
+
+mkdir node/etc
+echo 'prefix=/usr/local' > node/etc/npmrc
+
+4)Now we're ready to move the node and npm binaries to our installation location. We'll move it into /opt/node with this command:
+$sudo mv node /opt/
+
+5)At this point, you may want to make root the owner of the files:
+
+$sudo chown -R root: /opt/node
+
+6) Lastly, let's create symbolic links of the node and npm binaries in your default path. We'll put the links in /usr/local/bin with these commands:
+
+sudo ln -s /opt/node/bin/node /usr/local/bin/node
+sudo ln -s /opt/node/bin/npm /usr/local/bin/npm
+
+7) Verify that Node is installed by checking its version with this command:
+node -v
+
+The Node.js runtime is now installed, and ready to run an application! Let's write a Node.js application.
+
+
+
+==========================Open listening port into firewal=====================
+1) sudo ufw allow 3000
+2) check status of port
+sudo ufw status
+
+
+==========================Setup Ip address and port to node js app====================
+
+var server = app.listen(3000, "0.0.0.0", function () {
+    var host = server.address().address
+    var port = server.address().port  
+    console.log("Trading app listening at http://%s:%s", host, port)  
+});
+
+
+============================Manage Application with PM2==================================
+The first thing you will want to do is use the pm2 start command to run your application, main.js, in the background:
+
+> start service command
+pm2 start main.js
+
+>stop service command
+pm2 stop main
+
+> restart sevice command
+pm2 restart main
+
+> The list of applications currently managed by PM2 can also be looked up with the list subcommand:
+pm2 list
+
+
+
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&---End of setting up node js web api to linux ---&&&&&&&&&&&&&&&&&&&&&&&&&
