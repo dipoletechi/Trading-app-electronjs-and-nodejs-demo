@@ -52,7 +52,7 @@
     "@types/node": "~6.0.60",
     "angular2-grid": "^2.1.0",
     "codelyzer": "^4.0.1",
-    "electron": "^1.7.10",
+    "electron": "^9.1.0",
     "electron-installer-dmg": "^0.2.1",
     "electron-packager": "^10.1.0",
     "electron-winstaller": "^2.6.3",
